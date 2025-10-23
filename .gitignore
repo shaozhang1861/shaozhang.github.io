@@ -36,3 +36,13 @@ pids
 # Temporary folders
 tmp/
 temp/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# GitHub token file
+github_token.txt
