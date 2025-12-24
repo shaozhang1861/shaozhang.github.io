@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Shao Zhang | {{ page.title }}{% endblock %}
+
+{% block content %}
+<header class="hero">
+  <div class="container">
+    <div class="hero-intro">
+      <div class="eyebrow">{{ page.eyebrow }}</div>
+      <h1>{{ page.title }}</h1>
+      <p class="subhead">{{ page.subtitle }}</p>
+    </div>
+  </div>
+</header>
+
+<section class="case-study">
+  <div class="container">
+    <div class="case-study-content">
+      <div class="case-study-image">
+        <img src="{{ url_for('static', filename=page.image) }}" alt="{{ page.image_alt }}">
+      </div>
+      
+      <div class="case-study-text">
+        {% for section in page.sections %}
+          <h2>{{ section.heading }}</h2>
+          {% for para in section.paragraphs %}
+            <p>{{ para | safe }}</p>
+          {% endfor %}
+          {% if section.list_items %}
+          <ul>
+            {% for item in section.list_items %}
+              <li>{{ item | safe }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+

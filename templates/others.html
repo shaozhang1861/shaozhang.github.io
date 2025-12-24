@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Shao Zhang | Others{% endblock %}
+
+{% block content %}
+<header id="top" class="hero">
+  <div class="container">
+    <div class="hero-intro">
+      <div class="eyebrow">Beyond Product Design</div>
+      <h1>Other Sides of Me 🌟</h1>
+      <p class="subhead">When I'm not designing products, you'll find me expressing myself through dance or caring for my furry companion. These passions bring balance and joy to my creative journey.</p>
+    </div>
+  </div>
+</header>
+
+<section class="personal">
+  <div class="container">
+    <div class="personal-projects">
+      {% for item in personal_items %}
+      <article class="personal-project">
+        <a class="project-media" href="{{ url_for('case_detail', slug=item.slug) }}" aria-label="View {{ item.title }}">
+          <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.card_image_alt }}">
+        </a>
+        <div class="project-copy">
+          <div class="tagline">{{ item.tagline }}</div>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.card_description }}</p>
+          <a href="{{ url_for('case_detail', slug=item.slug) }}" class="button">{{ item.cta_label or "Learn More" }}</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Let's w🚀rk t_g_th_r</h2>
+    <p class="open-for">I'm open for projects</p>
+    <a class="email" href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+  </div>
+</section>
+{% endblock %}
+

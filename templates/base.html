@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Shao Zhang | Portfolio{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo"><a href="{{ url_for('home') }}#top">Shao Zhang</a></div>
+    <div class="menu">
+      <a href="{{ url_for('home') }}#work">Work</a>
+      <a href="{{ url_for('others') }}">Others</a>
+      <a href="{{ url_for('home') }}#contact">Contact</a>
+    </div>
+    <div class="mobile-menu">☰</div>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="mailto:{{ contact_email }}">Email</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#">Imprint</a>
+      <a href="#">Privacy</a>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
