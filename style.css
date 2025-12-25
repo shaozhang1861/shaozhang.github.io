@@ -1,0 +1,123 @@
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  margin: 0;
+  line-height: 1.6;
+  color:#111;
+}
+
+:root{
+  --container: 1040px;
+  --pad: 24px;
+  --text: #111;
+  --muted:#666;
+  --border:#eee;
+}
+
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+/* Navigation */
+.nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px var(--pad);
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index: 10;
+  border-bottom:1px solid var(--border);
+}
+
+.logo a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+}
+
+.nav .menu a {
+  margin-left: 1rem;
+  text-decoration:none;
+  color:#333;
+}
+
+.nav .menu a.active {
+  color:var(--text);
+  font-weight:500;
+}
+
+.mobile-menu{ display:none; cursor:pointer; }
+
+/* Hero Section */
+.hero {
+  padding:96px 0 48px;
+}
+
+.hero-intro { max-width: 760px; }
+.eyebrow{ color:var(--muted); text-transform:uppercase; letter-spacing:.08em; font-size:.9rem; }
+.hero h1{ font-size: clamp(40px, 6vw, 72px); line-height:1.05; margin:8px 0 12px; white-space: nowrap; }
+.subhead{ color:#333; font-size: clamp(18px, 2.4vw, 22px); max-width: 60ch; }
+
+.hero-slider img {
+  width:300px;
+  margin-left:1rem;
+}
+
+/* Work Section */
+.work { padding: 24px 0 64px; }
+
+/* Personal Section */
+.personal { padding: 24px 0 64px; }
+.personal-projects { display:flex; flex-direction:column; gap:56px; }
+.personal-project { display:grid; grid-template-columns: 1.2fr 1fr; gap:24px; align-items:center; }
+.projects { display:flex; flex-direction:column; gap:56px; }
+.project { display:grid; grid-template-columns: 1.2fr 1fr; gap:24px; align-items:center; }
+.project-media img{ width:100%; height:auto; display:block; border-radius:16px; }
+.project-copy .tagline{ color:var(--muted); font-size:.95rem; margin-bottom:8px; }
+.project-copy h2{ margin:8px 0 8px; font-size: clamp(22px, 3vw, 32px); }
+.project-copy p{ color:#333; margin:0 0 16px; }
+.button{ display:inline-block; padding:10px 14px; border:1px solid var(--text); border-radius:999px; text-decoration:none; color:var(--text); }
+
+/* removed old image sizing */
+
+/* removed old text layout */
+
+/* Contact Section */
+.contact { padding:72px 0; text-align:center; }
+.contact h2{ font-size: clamp(28px, 5vw, 56px); margin:0 0 8px; }
+.open-for{ color:var(--muted); margin:0 0 18px; }
+.email{ font-weight:600; color:var(--text); text-decoration:none; border-bottom:2px solid var(--text); padding-bottom:2px; }
+
+/* Case Study Styles */
+.case-study { padding: 48px 0 64px; }
+.case-study-content { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
+.case-study-image img { width: 100%; height: auto; border-radius: 16px; }
+.case-study-text h2 { margin: 32px 0 16px; font-size: clamp(22px, 3vw, 28px); }
+.case-study-text h3 { margin: 28px 0 14px; font-size: clamp(20px, 2.5vw, 26px); color: var(--muted); }
+.case-study-text p { margin: 0 0 16px; line-height: 1.7; color: #333; }
+.case-study-text ul { margin: 16px 0; padding-left: 20px; }
+.case-study-text li { margin: 12px 0; line-height: 1.6; list-style: disc; color: var(--muted); }
+.case-study-text strong { color: var(--text); font-weight: 600; }
+
+/* Footer */
+.footer { padding:24px 0; background:#f5f5f5; }
+.footer-inner{ display:flex; gap:16px; align-items:center; justify-content:center; }
+.footer a{ color:#333; text-decoration:none; }
+
+@media (max-width: 900px){
+  .project{ grid-template-columns: 1fr; }
+  .personal-project{ grid-template-columns: 1fr; }
+  .case-study-content { grid-template-columns: 1fr; gap: 32px; }
+  .case-study-text h2 { margin: 24px 0 12px; font-size: clamp(20px, 2.5vw, 24px); }
+  .case-study-text h3 { margin: 22px 0 10px; font-size: clamp(18px, 2vw, 22px); }
+}
+
+@media (max-width: 640px){
+  .nav .menu{ display:none; }
+  .nav .menu.open{ display:block; position:absolute; right:var(--pad); top:56px; background:#fff; border:1px solid var(--border); border-radius:12px; padding:12px; }
+  .nav .menu.open a{ display:block; padding:6px 8px; }
+  .mobile-menu{ display:block; }
+}
